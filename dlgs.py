@@ -2,6 +2,11 @@ def get_tf_weights(shape, stddev = 0.1):
 	weights = tf.Variable(tf.truncated_normal(shape=shape,stddev = stddev))
 	return weights
 
+def get_tf_biases(num_outputs):
+	biases = tf.Variable(tf.zeros(num_outputs))
+	return biases
+
+	
 def get_bag_of_words(text):
 	from collections import Counter
     return Counter(text.split())
