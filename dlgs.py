@@ -1,3 +1,13 @@
+def create_tf_checkpoint(sess, path, version = 1):
+	"""
+    Creates a tensoflow checkpoint 
+    : sess: The TensorFlow session you want to save
+    : path: The name of the file to save the session to
+    : version: The version of the checkpoint, by default is 1, so you can create different checkpoints in time for your model    
+    """  
+	saver = tf.train.Saver()
+    save_path = saver.save(sess, path, global_stet = version)
+
 def get_tf_weights(shape, stddev = 0.1):	
 	weights = tf.Variable(tf.truncated_normal(shape=shape,stddev = stddev))
 	return weights
