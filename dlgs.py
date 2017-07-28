@@ -6,11 +6,11 @@ def create_tf_checkpoint(sess, path, version = 1):
     : version: The version of the checkpoint, by default is 1, so you can create different checkpoints in time for your model    
     """  
 	saver = tf.train.Saver()
-    save_path = saver.save(sess, path, global_stet = version)
+	save_path = saver.save(sess, path, global_stet = version)
 
 def restore_tf_checkpoint(sess, path):
-	    loader = tf.train.import_meta_graph(path + '.meta')
-        loader.restore(sess, path)		
+	loader = tf.train.import_meta_graph(path + '.meta')
+	loader.restore(sess, path)		
 		
 def get_tf_weights(shape, stddev = 0.1):	
 	weights = tf.Variable(tf.truncated_normal(shape=shape,stddev = stddev))
@@ -23,7 +23,7 @@ def get_tf_biases(num_outputs):
 	
 def get_bag_of_words(text):
 	from collections import Counter
-    return Counter(text.split())
+	return Counter(text.split())
 	
 def normalize_image(x):
     """
@@ -60,4 +60,4 @@ def one_hot_encoder_np(x):
     : return:Numpy array of one-hot encoded labels
     """
 	import numpy as np
-    return np.eye(number_of_labels)[x]
+	return np.eye(number_of_labels)[x]
