@@ -8,6 +8,10 @@ def create_tf_checkpoint(sess, path, version = 1):
 	saver = tf.train.Saver()
     save_path = saver.save(sess, path, global_stet = version)
 
+def load_tf_checkpoint(sess, path):
+	    loader = tf.train.import_meta_graph(path + '.meta')
+        loader.restore(sess, path)		
+		
 def get_tf_weights(shape, stddev = 0.1):	
 	weights = tf.Variable(tf.truncated_normal(shape=shape,stddev = stddev))
 	return weights
